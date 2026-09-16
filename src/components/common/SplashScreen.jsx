@@ -1,84 +1,94 @@
 import React, { useState, useEffect } from 'react';
 
 const SplashScreen = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
+  const [step, setStep] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            setFadeOut(true);
-            setTimeout(() => onComplete(), 1000);
-          }, 1300);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 130);
+    const timers = [
+      setTimeout(() => setStep(1), 100),
+      setTimeout(() => setStep(2), 1200),
+      setTimeout(() => setStep(3), 2000),
+      setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => onComplete(), 1200);
+      }, 2800),
+    ];
 
-    return () => clearInterval(timer);
+    return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 transition-opacity duration-1000 ${
-        fadeOut ? 'opacity-0' : 'opacity-100'
-      }`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}
     >
       <div className="flex flex-col items-center justify-center min-h-screen w-full px-4">
-        {/* Logo Container - Professional circular design */}
-        <div className="relative mb-8">
-          {/* Outer spinning ring */}
-          <div className="absolute -inset-6 border-2 border-gold-300/20 rounded-full animate-spin-slow"></div>
-          
-          {/* Inner gold glow */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-gold-400/30 via-gold-300/20 to-gold-400/30 rounded-full blur-2xl animate-pulse-gold"></div>
-          
-          {/* White background circle for logo */}
-          <div className="relative z-10 bg-white/95 backdrop-blur-sm rounded-full p-4 shadow-2xl animate-logo-reveal">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 flex items-center justify-center">
-              <img
-                src="/images/dotaseg-logo.jpg"
-                alt="DOTASEG S.A.S. Logo"
-                className="max-w-full max-h-full object-contain"
-                style={{
-                  filter: 'brightness(1.15) contrast(1.05) saturate(1.25)',
-                  borderRadius: '12px',
-                }}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/150x150/d4a76a/ffffff?text=DOTASEG'; }}
-              />
+        {/* Justice Scale - Main element */}
+        <div
+          className={`transition-all duration-700 ${step >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+        >
+          <div className="relative flex flex-col items-center">
+            {/* Pivot point */}
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gold-500 shadow-lg mb-2 flex items-center justify-center">
+              <div className="absolute -inset-1 bg-gold-400/30 rounded-full blur animate-pulse"></div>
+              <svg className="w-6 h-6 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="3" strokeWidth="2" />
+              </svg>
+            </div>
+
+            {/* Vertical beam */}
+            <div className={`w-0.5 bg-gold-400 transition-all duration-700 ${step >= 2 ? 'h-32 animate-balance-scale' : 'h-0 opacity-0'}`}></div>
+
+            {/* Scale arms with animation */}
+            <div
+              className={`relative w-64 h-12 transition-all duration-700 ${step >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
+            >
+              {/* Left arm */}
+              <div className="absolute left-0 top-6 w-28 h-0.5 bg-gold-400 origin-right rotate-12"></div>
+              <div className="absolute left-2 top-6 w-4 h-4 rounded-full bg-gold-500 shadow-md"></div>
+
+              {/* Right arm */}
+              <div className="absolute right-0 top-6 w-28 h-0.5 bg-gold-400 origin-left -rotate-12"></div>
+              <div className="absolute right-2 top-6 w-4 h-4 rounded-full bg-gold-500 shadow-md"></div>
+            </div>
+
+            {/* Center support */}
+            <div className="w-1 h-6 bg-secondary-300 rounded-full mb-2"></div>
+
+            {/* Scale pans */}
+            <div
+              className={`flex justify-center gap-16 mt-4 transition-all duration-700 ${step >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            >
+              <div className="w-12 h-6 border-2 border-secondary-400 rounded-b-lg"></div>
+              <div className="w-12 h-6 border-2 border-secondary-400 rounded-b-lg"></div>
             </div>
           </div>
         </div>
 
-        {/* Company text - Professional */}
-        <div className="text-center animate-fade-up" style={{ animationDelay: '2s' }}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-3 tracking-tight">
-            <span className="text-white">DOTA</span>
-            <span className="text-gold-300">SEG</span>
+        {/* DOTASEG text appears after balance animation */}
+        <div
+          className={`mt-8 transition-all duration-700 text-center ${step >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-primary-900 mb-2">
+            DOTA<span className="text-gold-500">SEG</span>
           </h1>
-          <p className="text-gold-200 text-lg sm:text-xl md:text-2xl max-w-md mx-auto font-light">
-            Transformación y adaptación — Gestión integral de seguros
+          <p className="text-secondary-600 text-sm sm:text-base">
+            Transformación y adaptación
           </p>
         </div>
 
-        {/* Progress bar - Elegant */}
-        <div className="w-full max-w-md mt-10">
-          <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mb-4">
-            <div className="h-full bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 rounded-full transition-all duration-500 ease-out" style={{ width: `${progress}%` }} />
-          </div>
-          <p className="text-center text-sm text-white/70">
-            Cargando experiencia profesional... {progress}%
-          </p>
+        {/* Progress indicator */}
+        <div
+          className={`w-32 h-1 bg-secondary-200 rounded-full overflow-hidden transition-all duration-700 ${step >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+        >
+          <div className="h-full bg-gold-500 rounded-full animate-pulse" style={{ width: '100%' }}></div>
         </div>
 
-        {/* Footer */}
-        <div className="mt-8 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-          <p>© 2026 • DOTASEG S.A.S. • v1.0.0</p>
-          <p className="mt-1">🔒 Soluciones de seguros • 🛡️ Protección integral</p>
+        {/* Footer text */}
+        <div
+          className={`mt-4 text-xs text-secondary-400 transition-all duration-700 ${step >= 3 ? 'opacity-100' : 'opacity-0'}`}
+        >
+          <p>© 2026 • DOTASEG S.A.S. • Gestión integral de riesgos</p>
         </div>
       </div>
     </div>

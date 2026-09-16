@@ -1,8 +1,7 @@
 import partnerJulian from '../assets/images/partner-julian.jpg?url';
 import partnerOscar from '../assets/images/partner-oscar.jpg?url';
-import dotasegLogo from '../assets/images/dotaseg-logo.jpg?url';
-import heroImage from '../assets/images/hero-image.jpg?url';
-import corporateBackground from '../assets/images/corporate-background.jpg?url';
+import heroImage from '../assets/images/imagen-propuesta-1.jpeg?url';
+import corporateBackground from '../assets/images/imagen-propuesta-2.jpeg?url';
 
 const IMAGES = {
   partners: {
@@ -12,9 +11,6 @@ const IMAGES = {
   corporate: {
     hero: heroImage,
     background: corporateBackground,
-  },
-  logo: {
-    main: dotasegLogo,
   },
 };
 
@@ -39,8 +35,6 @@ export const getCorporateImage = (type = 'hero') => {
       return IMAGES.corporate.hero;
   }
 };
-
-export const getLogo = () => IMAGES.logo.main;
 
 export const getImagePlaceholder = (seed, width = 800, height = 600, category = '') => {
   const cats = ['business', 'technology', 'people', 'nature', 'architecture'];
@@ -68,7 +62,6 @@ export default {
   IMAGES,
   getPartnerImage,
   getCorporateImage,
-  getLogo,
   getImagePlaceholder,
   getTeamImage,
   getHeroPlaceholder,

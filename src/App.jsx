@@ -11,12 +11,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const hasLoaded = sessionStorage.getItem('dotaseg-loaded');
-    if (hasLoaded) {
+    setTimeout(() => {
       setLoading(false);
-    } else {
-      sessionStorage.setItem('dotaseg-loaded', 'true');
-    }
+    }, 100);
   }, []);
 
   if (loading) {

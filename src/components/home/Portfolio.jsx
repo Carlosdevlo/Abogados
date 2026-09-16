@@ -1,15 +1,13 @@
 /**
  * Portfolio.jsx
- * Sección Ajuste Masivo de Hogar.
+ * Sección Ajuste Masivo de Hogar con imagen profesional.
  */
 import React from 'react';
 import { homeController } from '../../controllers/homeController';
 import SectionTitle from '../common/SectionTitle';
-import { getCorporateImage } from '../../utils/imagePlaceholder.js';
 
 const Portfolio = () => {
   const data = homeController.getPortfolioData();
-  const heroImage = getCorporateImage('hero');
 
   return (
     <section id="portafolio" className="py-16 lg:py-24 bg-white">
@@ -36,11 +34,10 @@ const Portfolio = () => {
             </ul>
           </div>
 
-          {/* Image - Responsive */}
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-card">
+            <div className="rounded-2xl overflow-hidden shadow-card border border-secondary-100">
               <img
-                src="/images/hero-image.jpg"
+                src="/images/imagen-propuesta-6.jpeg"
                 alt="Ajuste Masivo de Hogar"
                 className="w-full h-64 sm:h-80 lg:h-[400px] object-cover"
               />

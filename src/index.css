@@ -21,6 +21,7 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    background: #ffffff;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -31,14 +32,17 @@
 }
 
 @layer components {
+  /* Botón con color dorado corporativo */
   .btn-gold {
     @apply inline-flex items-center justify-center px-6 py-3 bg-gold-500 hover:bg-gold-400 text-primary-900 font-semibold rounded-lg transition-all duration-300 shadow-soft hover:shadow-gold;
   }
 
+  /* Link de navegación con subrayado animado */
   .nav-link {
     @apply text-secondary-700 hover:text-gold-500 font-medium transition-colors duration-200 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full;
   }
 
+  /* Sombras corporativas suaves */
   .shadow-soft {
     box-shadow: 0 2px 20px rgba(0, 28, 78, 0.06);
   }
@@ -51,6 +55,7 @@
     box-shadow: 0 10px 40px rgba(209, 156, 33, 0.3);
   }
 
+  /* Animaciones */
   .animate-slide-up {
     animation: slideUp 0.8s ease-out forwards;
   }
@@ -60,95 +65,54 @@
   }
 }
 
+/* Keyframes básicas */
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes logoReveal {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) rotate(-10deg);
-  }
-  30% {
-    opacity: 1;
-    transform: scale(1.1) rotate(2deg);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(0.95) rotate(-1deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }
+/* Animación de la balanza de justicia para el splash */
+@keyframes balanceScale {
+  0% { transform: rotate(-5deg); }
+  30% { transform: rotate(3deg); }
+  60% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
 }
 
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeInUpScale {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes staggerFadeIn {
+@keyframes textReveal {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.animate-logo-reveal {
-  animation: logoReveal 1.2s cubic-bezier(0.175, 0.85, 0.25, 1) forwards;
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
 @keyframes spinSlow {
-  0% { transform: rotate(0deg); opacity: 1; }
-  50% { transform: rotate(180deg); opacity: 0.7; }
-  100% { transform: rotate(360deg); opacity: 1; }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.animate-spin-slow {
-  animation: spinSlow 8s linear infinite;
+/* Clases para el splash */
+.animate-balance-scale {
+  animation: balanceScale 1.5s ease-in-out;
 }
 
-@keyframes pulseGold {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.4; }
+.animate-fade-in-up {
+  animation: fadeInUpScale 0.8s ease-out forwards;
 }
 
-.animate-pulse-gold {
-  animation: pulseGold 2s ease-in-out infinite;
+.animate-text-reveal {
+  animation: textReveal 0.8s ease-out forwards;
 }

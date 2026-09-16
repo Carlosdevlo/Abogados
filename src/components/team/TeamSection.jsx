@@ -5,7 +5,6 @@
 import React, { useState } from 'react';
 import { homeController } from '../../controllers/homeController';
 import SectionTitle from '../common/SectionTitle';
-import { getPartnerImage } from '../../utils/imagePlaceholder.js';
 
 const TeamSection = () => {
   const data = homeController.getTeamData();
@@ -15,48 +14,56 @@ const TeamSection = () => {
     ? data.members.filter(m => m.category === activeCategory)
     : data.members;
 
-  const categoryIcons = {
-    arquitectos: '',
-    tecnicos: '',
-    plomeros: '',
-    electricistas: '',
-    'maestros-obra': '',
-  };
-
-  const placeholderNames = [
-    'Carlos Mendoza', 'Ana Ramírez', 'Luis Fernández', 'María Torres',
-    'Jorge Castañeda', 'Patricia López', 'Roberto Silva', 'Camila Herrera'
-  ];
-
-  const placeholderPositions = [
-    'Arquitecto Senior', 'Técnico en Inspección', 'Plomero Certificado',
-    'Electricista Profesional', 'Maestro de Obra', 'Ajustador Principal'
-  ];
-
   return (
-    <section id="equipo" className="py-16 lg:py-24 bg-secondary-50">
+    <section id="equipo" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title={data.title} align="center" />
 
-        {/* Partners Section - Responsive */}
-        {data.partners && (
+        {/* Partners Section - Professional profiles with images */}
+        {data.partners && data.partners.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-center text-lg font-display font-semibold text-primary-900 mb-8">
+            <h3 className="text-center text-xl font-display font-semibold text-primary-900 mb-12">
               Socios Fundamentales
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
               {data.partners.map((partner) => (
-                <div key={partner.id} className="flex flex-col items-center text-center">
-                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-card mb-4 border-4 border-gold-200">
+                <div
+                  key={partner.id}
+                  className="group flex flex-col lg:flex-row bg-white rounded-xl shadow-card hover:shadow-gold transition-all duration-500 overflow-hidden border border-secondary-100"
+                >
+                  {/* Photo - Full width on mobile, side on desktop */}
+                  <div className="w-full lg:w-56 h-48 lg:h-56 relative overflow-hidden">
                     <img
-                       src={partner.image === 1 ? '/images/partner-julian.jpg' : '/images/partner-oscar.jpg'}
+                      src={`/images/partner-${partner.photo}.jpg`}
                       alt={partner.name}
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        e.target.src = `https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=${encodeURIComponent(partner.name)}`;
+                      }}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent lg:from-black/20 lg:via-transparent lg:to-transparent"></div>
                   </div>
-                  <h4 className="text-xl font-display font-bold text-primary-900 mb-1">
-                    {partner.name}
-                  </h4>
+
+                  {/* Info */}
+                  <div className="p-6 lg:p-8 flex-1 flex flex-col">
+                    <h4 className="text-2xl font-display font-bold text-primary-900 mb-2">
+                      {partner.name}
+                    </h4>
+                    <p className="text-gold-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                      {partner.position}
+                    </p>
+                    <p className="text-secondary-600 leading-relaxed text-sm mb-4 flex-1">
+                      {partner.description}
+                    </p>
+                    <div className="flex gap-2 mt-auto">
+                      <span className="inline-block px-3 py-1 bg-secondary-100 text-secondary-700 text-xs rounded-full">
+                        {partner.experience}
+                      </span>
+                      <span className="inline-block px-3 py-1 bg-secondary-100 text-secondary-700 text-xs rounded-full">
+                        Certificado
+                      </span>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -90,23 +97,18 @@ const TeamSection = () => {
           ))}
         </div>
 
-        {/* Team Grid */}
+        {/* Team Grid - Simplified and balanced */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredMembers.map((member, index) => {
-            const name = placeholderNames[index] || 'Nombre placeholder';
-            const position = placeholderPositions[index] || 'Cargo placeholder';
+            const name = member.name || `Miembro ${index + 1}`;
+            const position = member.role || 'Cargo definiendo';
 
             return (
-              <div key={member.id} className="bg-white rounded-xl shadow-soft overflow-hidden hover:shadow-card transition-all duration-300">
-                <div className="h-64 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 mx-auto bg-primary-200 rounded-full flex items-center justify-center text-4xl mb-2">
-                        {categoryIcons[member.category] || ''}
-                      </div>
-                      <p className="text-primary-400 text-xs">Fotografía pendiente</p>
-                    </div>
-                  </div>
+              <div key={member.id} className="bg-white rounded-xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden border border-secondary-100">
+                <div className="h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-primary-50 to-gold-50">
+                  <svg className="w-16 h-16 text-primary-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-gold-100 text-gold-700 text-xs font-semibold rounded-full mb-3">
@@ -125,7 +127,7 @@ const TeamSection = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-sm text-secondary-500 italic">
+          <p className="text-sm text-secondary-400 italic">
             Las fotografías, nombres, cargos y certificaciones serán proporcionados por el cliente.
           </p>
         </div>

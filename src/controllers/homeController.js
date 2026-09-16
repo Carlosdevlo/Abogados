@@ -117,8 +117,22 @@ export const homeController = {
       members: teamModel.members,
       categories: teamModel.categories,
       partners: [
-        { id: 1, name: 'Julián Camilo Avila Figueroa', image: 1 },
-        { id: 2, name: 'Óscar Andrés Bernal Garcés', image: 2 },
+        {
+          id: 1,
+          name: 'Julian',
+          position: 'Gerente de Riesgos y Seguros',
+          photo: 'julian',
+          experience: '12+ años',
+          description: "Profesional especializado en Gestión de Riesgos y Seguros, con 12 años de experiencia en el sector asegurador, particularmente en el ramo de Automóviles. Cuenta con amplia trayectoria en la dirección y gestión integral de procesos relacionados con siniestros, responsabilidad civil, recobros, auditoría técnica y operación aseguradora. Ha liderado equipos de trabajo y procesos orientados al análisis, control y mitigación de riesgos, participando en la toma de decisiones estratégicas y en la implementación de iniciativas para optimizar procesos, fortalecer controles y mejorar los niveles de eficiencia y servicio.",
+        },
+        {
+          id: 2,
+          name: 'Oscar',
+          position: 'Ajustador de Pérdidas',
+          photo: 'oscar',
+          experience: '18+ años',
+          description: "Ajustador de Pérdidas con más de 18 años de experiencia en el sector asegurador, especializado en la investigación, análisis, valoración y gestión integral de reclamaciones de seguros. Cuenta con amplia experiencia en la evaluación de daños y pérdidas, determinación de costos de reparación o reposición y elaboración de informes técnicos que permiten sustentar de manera objetiva la procedencia y cuantificación de las reclamaciones. Posee sólidas habilidades para la negociación, manejo y resolución de controversias, así como para la coordinación de múltiples procesos de reclamación bajo condiciones de alta exigencia y presión.",
+        },
       ],
     };
   },

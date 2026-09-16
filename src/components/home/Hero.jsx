@@ -5,16 +5,14 @@
 import React from 'react';
 import { homeController } from '../../controllers/homeController';
 import Button from '../common/Button';
-import { getCorporateImage } from '../../utils/imagePlaceholder.js';
 
 const Hero = () => {
   const data = homeController.getHeroData();
-  const heroImage = getCorporateImage('hero');
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-16 lg:pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="hero" className="pt-16 lg:pt-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 lg:py-20">
           {/* Left Content */}
           <div className="animate-slide-up">
             <span className="inline-block px-4 py-2 bg-gold-100 text-gold-700 text-sm font-semibold rounded-full mb-6">
@@ -39,26 +37,20 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Image - Responsive */}
-          <div className="relative animate-fade-in">
-            <div className="relative rounded-2xl overflow-hidden shadow-card">
+          {/* Right Image - Professional */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-card border border-secondary-100">
               <img
-                src="/images/hero-image.jpg"
-                alt="Análisis de riesgos"
+                src="/images/imagen-propuesta-1.jpeg"
+                alt="Análisis de riesgos y seguros"
                 className="w-full h-64 sm:h-80 lg:h-[500px] object-cover object-center"
               />
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 w-20 h-20 bg-gold-400 rounded-full opacity-20 blur-2xl"></div>
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-primary-400 rounded-full opacity-20 blur-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/40 via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-3 shadow-soft">
+                <p className="text-primary-900 font-semibold text-sm">Gestión de riesgos especializada</p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator - hidden on mobile */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block">
-        <div className="w-6 h-10 border-2 border-secondary-300 rounded-full flex justify-center">
-          <div className="w-1.5 h-3 bg-secondary-400 rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
     </section>

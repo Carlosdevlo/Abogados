@@ -1,15 +1,13 @@
 /**
  * Header.jsx
- * Navegación principal - Header fijo.
+ * Navegación principal - Header fijo con diseño tecnológico.
  */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { navigationModel } from '../../models/navigationModel';
 import { companyModel } from '../../models/companyModel';
-import dotasegLogo from '../../utils/imagePlaceholder.js';
+import Logo from '../common/Logo';
 
 const Header = () => {
-  const logo = dotasegLogo.getLogo();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,28 +20,16 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-soft' : 'bg-transparent'
-    }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-secondary-100' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - Responsive */}
-            <div className="flex items-center space-x-3">
-              <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl flex items-center justify-center overflow-hidden bg-white p-2 shadow-sm border border-gold-200">
-                <img src="/images/dotaseg-logo.jpg" alt="DOTASEG S.A.S. Logo" className="w-full h-full object-contain" style={{ filter: 'brightness(1.2)' }} />
-              </div>
-            <div className="hidden sm:block">
-              <h1 className="font-display font-bold text-lg text-primary-900 leading-none">
-                {companyModel.name}
-              </h1>
-              <p className="text-xs text-secondary-500 leading-none mt-0.5">
-                {companyModel.slogan}
-              </p>
-            </div>
+          {/* Logo - Professional SVG logo */}
+          <div className="flex items-center space-x-3">
+            <Logo variant="dark" className="text-xl lg:text-2xl" />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-10">
             {navigationModel.mainNav.map((item) => (
               <a
                 key={item.id}
@@ -59,7 +45,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <a
               href="#contacto"
-              className="btn-gold text-sm px-5 py-2.5"
+              className="btn-gold text-sm px-6 py-2.5"
             >
               Contáctanos
             </a>
