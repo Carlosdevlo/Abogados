@@ -4,12 +4,12 @@
  */
 import React from 'react';
 
-const SectionTitle = ({ title, subtitle, align = 'left', className = '' }) => {
+const SectionTitle = ({ title, subtitle, align = 'left', className = '', titleClassName = '' }) => {
   const alignClass = align === 'center' ? 'text-center' : align === 'right' ? 'text-right' : 'text-left';
 
   return (
     <div className={`mb-12 ${alignClass} ${className}`}>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-primary-900 mb-4">
+      <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-primary-900 mb-4 ${titleClassName}`}>
         {title}
       </h2>
       {subtitle && (

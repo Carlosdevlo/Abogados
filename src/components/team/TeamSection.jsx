@@ -17,32 +17,41 @@ const TeamSection = () => {
   return (
     <section id="equipo" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle title={data.title} align="center" />
+         <SectionTitle title={data.title} align="center" />
 
-        {/* Partners Section - Professional profiles with images */}
-        {data.partners && data.partners.length > 0 && (
-          <div className="mb-16">
-            <h3 className="text-center text-xl font-display font-semibold text-primary-900 mb-12">
-              Socios Fundamentales
-            </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-              {data.partners.map((partner) => (
-                <div
-                  key={partner.id}
-                  className="group flex flex-col lg:flex-row bg-white rounded-xl shadow-card hover:shadow-gold transition-all duration-500 overflow-hidden border border-secondary-100"
-                >
-                  {/* Photo - Full width on mobile, side on desktop */}
-                  <div className="w-full lg:w-56 h-48 lg:h-56 relative overflow-hidden">
-                    <img
-                      src={`/images/partner-${partner.photo}.jpg`}
-                      alt={partner.name}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                      onError={(e) => {
-                        e.target.src = `https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=${encodeURIComponent(partner.name)}`;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent lg:from-black/20 lg:via-transparent lg:to-transparent"></div>
-                  </div>
+         {/* Logo del equipo - pequeño y elegante */}
+         <div className="flex justify-center mb-8">
+           <img
+             src="/images/Logo.jpg"
+             alt="Logo DOTASEG"
+             className="h-8 w-auto opacity-60 grayscale"
+           />
+         </div>
+
+         {/* Partners Section - Professional profiles with images */}
+         {data.partners && data.partners.length > 0 && (
+           <div className="mb-16">
+             <h3 className="text-center text-xl font-display font-semibold text-primary-900 mb-12">
+               Socios Fundamentales
+             </h3>
+             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+               {data.partners.map((partner) => (
+                 <div
+                   key={partner.id}
+                   className="group flex flex-col lg:flex-row bg-white rounded-xl shadow-card hover:shadow-gold transition-all duration-500 overflow-hidden border border-secondary-100"
+                 >
+                   {/* Photo - Full width on mobile, side on desktop */}
+                   <div className="relative w-full lg:w-64 h-56 lg:h-64 overflow-hidden">
+                     <img
+                       src={`/images/partner-${partner.photo}.jpg`}
+                       alt={partner.name}
+                       className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                       onError={(e) => {
+                         e.target.src = `https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=${encodeURIComponent(partner.name)}`;
+                       }}
+                     />
+                     <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent lg:from-black/20 lg:via-transparent lg:to-transparent"></div>
+                   </div>
 
                   {/* Info */}
                   <div className="p-6 lg:p-8 flex-1 flex flex-col">
@@ -104,11 +113,13 @@ const TeamSection = () => {
             const position = member.role || 'Cargo definiendo';
 
             return (
-              <div key={member.id} className="bg-white rounded-xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden border border-secondary-100">
-                <div className="h-48 overflow-hidden flex items-center justify-center bg-gradient-to-br from-primary-50 to-gold-50">
-                  <svg className="w-16 h-16 text-primary-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+            <div key={member.id} className="bg-white rounded-xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden border border-secondary-100 group">
+                <div className="h-56 overflow-hidden flex items-center justify-center bg-gradient-to-br from-primary-50 via-gold-50 to-primary-50">
+                  <div className="w-24 h-24 rounded-full bg-gold-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-12 h-12 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-3 py-1 bg-gold-100 text-gold-700 text-xs font-semibold rounded-full mb-3">

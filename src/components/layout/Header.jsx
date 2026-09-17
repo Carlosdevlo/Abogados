@@ -1,11 +1,9 @@
 /**
  * Header.jsx
- * Navegación principal - Header fijo con diseño tecnológico.
+ * Navegación principal - Header fijo con fondo primary-900.
  */
 import React, { useState, useEffect } from 'react';
 import { navigationModel } from '../../models/navigationModel';
-import { companyModel } from '../../models/companyModel';
-import Logo from '../common/Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,12 +18,16 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-secondary-100' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary-900/95 backdrop-blur-md shadow-lg border-b border-gold-500/30' : 'bg-primary-900'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - Professional SVG logo */}
-          <div className="flex items-center space-x-3">
-            <Logo variant="dark" className="text-xl lg:text-2xl" />
+          {/* Logo - Imagen del logo de la empresa */}
+          <div className="flex items-center">
+            <img
+              src="/images/Logo.jpg"
+              alt="Logo DOTASEG"
+              className="h-10 sm:h-12 lg:h-14 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -34,7 +36,7 @@ const Header = () => {
               <a
                 key={item.id}
                 href={item.href}
-                className="nav-link"
+                className="nav-link text-white hover:text-gold-300 transition-colors duration-200"
               >
                 {item.label}
               </a>
@@ -53,7 +55,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-secondary-700"
+            className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -72,13 +74,13 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-secondary-100">
+        <div className="lg:hidden bg-primary-800 border-t border-gold-500/30">
           <div className="px-4 py-4 space-y-2">
             {navigationModel.mainNav.map((item) => (
               <a
                 key={item.id}
                 href={item.href}
-                className="block px-4 py-3 text-secondary-700 hover:bg-secondary-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-white hover:bg-primary-700 rounded-lg transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
