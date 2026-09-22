@@ -18,12 +18,12 @@ const PropuestaValor = () => {
           {/* Content */}
           <div className="space-y-6">
             {data.items.map((item) => (
-              <div key={item.id} className="flex items-start">
-                <div className="w-12 h-12 rounded-lg bg-gold-100 flex items-center justify-center mr-4 flex-shrink-0">
+              <div key={item.id} className="flex items-start group transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gold-100 flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-gold-200 transition-colors duration-300">
                   <span className="text-primary-900 font-bold text-xl">{item.id}</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-bold text-primary-900 mb-2">
+                  <h3 className="text-xl font-display font-bold text-primary-900 mb-2 group-hover:text-gold-700 transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-secondary-600">

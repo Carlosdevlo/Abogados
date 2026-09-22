@@ -1,6 +1,6 @@
 /**
  * ContactForm.jsx
- * Formulario de contacto - Envía correo a gerenciadotaseg@gmail.com
+ * Formulario de contacto - Envía correo a gerencia@dotaseg.com.co
  */
 import React, { useState } from 'react';
 import { companyModel } from '../../models/companyModel';
@@ -113,7 +113,7 @@ const ContactForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`px-8 py-3 bg-gold-500 hover:bg-gold-400 text-primary-900 font-semibold rounded-lg transition-all duration-300 shadow-soft hover:shadow-gold disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center`}
+        className={`w-full px-8 py-3 bg-gold-500 hover:bg-gold-400 text-primary-900 font-semibold rounded-lg transition-all duration-300 shadow-soft hover:shadow-gold disabled:opacity-75 disabled:cursor-not-allowed flex items-center justify-center`}
       >
         {isSubmitting ? (
           <>

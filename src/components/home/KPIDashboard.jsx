@@ -41,7 +41,7 @@ const KPIDashboard = () => {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {data.kpis.map((kpi) => (
-            <div key={kpi.id} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center">
+            <div key={kpi.id} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
               <div className="text-4xl lg:text-5xl font-display font-bold text-gold-400 mb-2">
                 {kpi.value}
               </div>

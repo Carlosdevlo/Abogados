@@ -34,7 +34,7 @@ const ContactInfo = () => {
             </svg>
             <div>
               <p className="font-medium text-secondary-900">Teléfono</p>
-              <a href={`tel:${contact.phone}`} className="text-primary-600 hover:text-primary-700">
+              <a href={`tel:${contact.phone}`} className="text-primary-600 hover:text-primary-700 transition-colors">
                 {contact.phone}
               </a>
             </div>
@@ -42,11 +42,11 @@ const ContactInfo = () => {
 
           <div className="flex items-start">
             <svg className="w-6 h-6 mr-4 text-gold-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 01-2 2z" />
             </svg>
             <div>
               <p className="font-medium text-secondary-900">Correo</p>
-              <a href={`mailto:${contact.email}`} className="text-primary-600 hover:text-primary-700">
+              <a href={`mailto:${contact.email}`} className="text-primary-600 hover:text-primary-700 transition-colors">
                 {contact.email}
               </a>
             </div>
@@ -59,7 +59,7 @@ const ContactInfo = () => {
             </svg>
             <div>
               <p className="font-medium text-secondary-900">Web</p>
-              <a href={`https://${contact.website}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700">
+              <a href={`https://${contact.website}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-700 transition-colors">
                 {contact.website}
               </a>
             </div>
@@ -72,20 +72,20 @@ const ContactInfo = () => {
           href={`https://wa.me/${contact.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200"
+          className="flex items-center justify-center w-full px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-all duration-200"
         >
           <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path d="M12.04 2.01L4.06 5.93c-1.01.505-1.01 1.49 0 2.005L12 13.97l7.94-4.035c1.01-.505 1.01-1.49 0-2.005l-7.94-3.92z" />
+            <path d="M12 17.728V13.97l-3.11-.79a1 1 0 0 1-.73-1.27l.57-1.35a1 1 0 0 1 1.22-.52L12 12l5.11-1.28a1 1 0 0 1 1.31 1.07l-.12.35a1 1 0 0 1-.96.84l-3.11.79v1.718h2.8a1 1 0 1 1 0 2h-2.8z" />
           </svg>
           WhatsApp
         </a>
         <a
           href={`mailto:${contact.email}`}
-          className="flex items-center justify-center w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-colors duration-200"
+          className="flex items-center justify-center w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200"
         >
           <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 01-2 2z" />
           </svg>
           Enviar Correo
         </a>

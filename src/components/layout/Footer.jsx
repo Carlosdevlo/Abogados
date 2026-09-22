@@ -1,6 +1,6 @@
 /**
  * Footer.jsx
- * Pie de página profesional con diseño limpio.
+ * Pie de página profesional con logo y diseño limpio.
  */
 import React from 'react';
 import { navigationModel } from '../../models/navigationModel';
@@ -11,18 +11,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-900 text-white">
+    <footer className="bg-primary-900 text-white border-t border-gold-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+          {/* Company Info - Logo */}
           <div className="col-span-1 md:col-span-2">
-                        <div className="flex items-center space-x-4 mb-6">
-              <Logo variant="light" className="text-xl" />
-              <div>
-                <p className="text-sm text-gold-300">
-                  {companyModel.slogan}
-                </p>
-              </div>
+            <div className="mb-6">
+              <Logo variant="light" size="md" noEffect />
             </div>
             <p className="text-white/70 mb-6 max-w-md">
               {companyModel.description}
@@ -45,7 +40,7 @@ const Footer = () => {
               </p>
               <p className="text-white/80 flex items-center">
                 <svg className="w-5 h-5 mr-3 text-gold-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 01-2 2z" />
                 </svg>
                 <a href={`mailto:${companyModel.contact.email}`} className="hover:text-gold-300 transition-colors">
                   {companyModel.contact.email}
@@ -56,7 +51,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 text-white">Navegación</h4>
+            <h4 className="font-display font-semibold text-lg mb-6 text-gold-300">Navegación</h4>
             <ul className="space-y-3">
               {navigationModel.footerNav.map((item) => (
                 <li key={item.label}>
@@ -70,7 +65,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-6 text-white">Contacto</h4>
+            <h4 className="font-display font-semibold text-lg mb-6 text-gold-300">Contacto</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -80,7 +75,7 @@ const Footer = () => {
                   className="text-white/70 hover:text-gold-300 transition-colors flex items-center"
                 >
                   <svg className="w-5 h-5 mr-2 text-gold-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.04 2.01 4.06 5.93c-1.01.505-1.01 1.49 0 2.005L12 13.97l7.94-4.035c1.01-.505 1.01-1.49 0-2.005l-7.94-3.92z" />
+                    <path d="M12.04 2.01L4.06 5.93c-1.01.505-1.01 1.49 0 2.005L12 13.97l7.94-4.035c1.01-.505 1.01-1.49 0-2.005l-7.94-3.92z" />
                     <path d="M12 17.728V13.97l-3.11-.79a1 1 0 0 1-.73-1.27l.57-1.35a1 1 0 0 1 1.22-.52L12 12l5.11-1.28a1 1 0 0 1 1.31 1.07l-.12.35a1 1 0 0 1-.96.84l-3.11.79v1.718h2.8a1 1 0 1 1 0 2h-2.8z" />
                   </svg>
                   WhatsApp

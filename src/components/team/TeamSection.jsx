@@ -17,16 +17,7 @@ const TeamSection = () => {
   return (
     <section id="equipo" className="py-16 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <SectionTitle title={data.title} align="center" />
-
-         {/* Logo del equipo - pequeño y elegante */}
-         <div className="flex justify-center mb-8">
-           <img
-             src="/images/Logo.jpg"
-             alt="Logo DOTASEG"
-             className="h-8 w-auto opacity-60 grayscale"
-           />
-         </div>
+       <SectionTitle title={data.title} align="center" />
 
          {/* Partners Section - Professional profiles with images */}
          {data.partners && data.partners.length > 0 && (

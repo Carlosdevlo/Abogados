@@ -1,6 +1,6 @@
 /**
  * SectionTitle.jsx
- * Título de sección.
+ * Título de sección - con línea decorativa dorada y tipografía refinada.
  */
 import React from 'react';
 

@@ -11,7 +11,7 @@ export const companyModel = {
    contact: {
     phone: '+57 310 878 7400',
     whatsapp: '573108787400',
-    email: 'gerenciadotaseg@gmail.com',
+    email: 'gerencia@dotaseg.com.co',
     address: 'Carrera 7 # 45-23',
     office: 'Oficina 501, Edificio Torre Central',
     city: 'Bogotá, Colombia',

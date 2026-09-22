@@ -63,6 +63,16 @@
   .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
   }
+
+  /* Línea decorativa dorada sutil */
+  .gold-accent {
+    @apply w-20 h-1 bg-gold-500 rounded-full;
+  }
+
+  /* Contenedor de logo con fondo blanco para contraste */
+  .logo-container {
+    @apply bg-white rounded-xl p-1.5 shadow-soft border border-secondary-100/30;
+  }
 }
 
 /* Keyframes básicas */

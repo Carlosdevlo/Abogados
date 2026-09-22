@@ -24,11 +24,13 @@ const Portfolio = () => {
             </h4>
             <ul className="space-y-4">
               {data.benefits.map((benefit, index) => (
-                <li key={index} className="flex items-start">
-                  <svg className="w-6 h-6 mr-3 text-gold-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <li key={index} className="flex items-start group transition-all duration-300">
+                  <svg className="w-6 h-6 mr-3 text-gold-500 flex-shrink-0 mt-0.5 group-hover:text-gold-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-secondary-700">{benefit}</span>
+                  <span className="text-secondary-700 group-hover:text-primary-900 transition-colors duration-300">
+                    {benefit}
+                  </span>
                 </li>
               ))}
             </ul>

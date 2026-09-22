@@ -1,6 +1,6 @@
 /**
  * Proposito.jsx
- * Sección de propósito.
+ * Sección de propósito - Logo destacado y elegante como elemento central.
  */
 import React from 'react';
 import { homeController } from '../../controllers/homeController';
@@ -22,7 +22,7 @@ const Proposito = () => {
     ),
     'Derecho de Seguros': (
       <svg className="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9l-5-5H5a2 2 0 00-2 2z"></path>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 002-2z"></path>
       </svg>
     ),
   };
@@ -51,8 +51,8 @@ const Proposito = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.items.map((item) => (
-            <div key={item.id} className="text-center bg-white rounded-xl p-8 shadow-soft hover:shadow-card transition-all duration-300 border border-secondary-100">
-              <div className="w-20 h-20 mx-auto bg-gold-100 rounded-2xl flex items-center justify-center mb-6">
+            <div key={item.id} className="text-center bg-white rounded-xl p-8 shadow-soft hover:shadow-card transition-all duration-300 border border-secondary-100 hover:border-gold-200 group">
+              <div className="w-20 h-20 mx-auto bg-gold-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold-200 transition-colors duration-300">
                 {icons[item.name] || ''}
               </div>
               <h3 className="text-xl font-display font-bold text-primary-900 mb-3">

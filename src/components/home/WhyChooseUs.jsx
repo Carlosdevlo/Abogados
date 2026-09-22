@@ -20,7 +20,7 @@ const iconMap = {
   ),
   4: (
     <svg className="w-7 h-7 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20v-2a4 4 0 00-3-3.87M9 7h.01M9 7a3 3 0 116 0m-6 0v1a3 3 0 106 0V7" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20v-2a4 4 0 00-3-3.87M9 7h.01M9 7a3 3 0 116 0m-6 0v1a3 3 0 016 0V7" />
     </svg>
   ),
   5: (
@@ -46,11 +46,11 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.items.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl p-8 shadow-soft hover:shadow-card transition-all duration-300 group">
+            <div key={item.id} className="bg-white rounded-xl p-8 shadow-soft hover:shadow-card transition-all duration-300 group border border-secondary-100 hover:border-gold-200">
               <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold-100 transition-colors duration-300">
                 {iconMap[item.id]}
               </div>
-              <h3 className="text-xl font-display font-bold text-primary-900 mb-3">
+              <h3 className="text-xl font-display font-bold text-primary-900 mb-3 group-hover:text-gold-700 transition-colors duration-300">
                 {item.title}
               </h3>
               <p className="text-secondary-600">

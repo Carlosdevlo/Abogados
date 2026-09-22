@@ -21,13 +21,17 @@ export default {
           200: '#B3C6EC',
           100: '#D9E4F5',
           50: '#F0F4FA',
+          25: '#F8FBFE',
         },
         gold: {
           500: '#D19C21',
           400: '#E0A834',
           600: '#A87D1A',
-          100: '#F5E6C8',
           700: '#8C6415',
+          100: '#F5E6C8',
+          75: '#F9F0E0',
+          50: '#FEF9F0',
+          25: '#FFFCF5',
         },
         secondary: {
           900: '#1A1A1A',
@@ -40,6 +44,7 @@ export default {
           200: '#E0E0E0',
           100: '#F0F0F0',
           50: '#F5F5F5',
+          25: '#FAFAFA',
         },
       },
       fontFamily: {

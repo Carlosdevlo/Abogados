@@ -34,11 +34,11 @@ const EnfoqueEstrategico = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {data.items.map((item) => (
-            <div key={item.id} className="bg-white rounded-xl p-8 shadow-soft border-t-4 border-gold-500 hover:shadow-lg transition-shadow duration-300">
-              <div className="w-16 h-16 rounded-lg bg-primary-50 flex items-center justify-center mb-6">
+            <div key={item.id} className="bg-white rounded-xl p-8 shadow-soft border-t-4 border-gold-500 hover:shadow-card transition-all duration-300 group">
+              <div className="w-16 h-16 rounded-lg bg-primary-50 flex items-center justify-center mb-6 group-hover:bg-gold-100 transition-colors duration-300">
                 {iconMap[item.id] || iconMap[1]}
               </div>
-              <h3 className="text-xl font-display font-bold text-primary-900 mb-3">
+              <h3 className="text-xl font-display font-bold text-primary-900 mb-3 group-hover:text-gold-700 transition-colors duration-300">
                 {item.title}
               </h3>
               <p className="text-secondary-600">

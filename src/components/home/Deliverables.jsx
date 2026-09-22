@@ -18,11 +18,11 @@ const Deliverables = () => {
           {data.items.map((item) => (
             <div key={item.id} className="text-center group">
               <div className="w-16 h-16 mx-auto bg-primary-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold-100 transition-colors duration-300">
-                <svg className="w-8 h-8 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-8 h-8 text-primary-600 group-hover:text-gold-600 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-display font-bold text-primary-900 mb-2">
+              <h3 className="text-lg font-display font-bold text-primary-900 mb-2 group-hover:text-gold-700 transition-colors duration-300">
                 {item.title}
               </h3>
               <p className="text-secondary-600 text-sm">

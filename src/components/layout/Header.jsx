@@ -1,9 +1,11 @@
 /**
  * Header.jsx
  * Navegación principal - Header fijo con fondo primary-900.
+ * Logo destacado como elemento principal de navegación.
  */
 import React, { useState, useEffect } from 'react';
 import { navigationModel } from '../../models/navigationModel';
+import Logo from '../common/Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,13 +23,9 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary-900/95 backdrop-blur-md shadow-lg border-b border-gold-500/30' : 'bg-primary-900'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - Imagen del logo de la empresa */}
+          {/* Logo - Imagen oficial destacada */}
           <div className="flex items-center">
-            <img
-              src="/images/Logo.jpg"
-              alt="Logo DOTASEG"
-              className="h-10 sm:h-12 lg:h-14 w-auto"
-            />
+            <Logo variant="light" size="md" noEffect />
           </div>
 
           {/* Desktop Navigation */}
@@ -36,7 +34,7 @@ const Header = () => {
               <a
                 key={item.id}
                 href={item.href}
-                className="nav-link text-white hover:text-gold-300 transition-colors duration-200"
+                className="text-white/80 hover:text-gold-300 font-medium text-sm tracking-wide transition-all duration-200 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
               </a>
@@ -47,7 +45,7 @@ const Header = () => {
           <div className="hidden lg:block">
             <a
               href="#contacto"
-              className="btn-gold text-sm px-6 py-2.5"
+              className="inline-flex items-center justify-center px-6 py-2.5 bg-gold-500 hover:bg-gold-400 text-primary-900 font-semibold rounded-lg transition-all duration-300 shadow-soft hover:shadow-gold text-sm"
             >
               Contáctanos
             </a>
