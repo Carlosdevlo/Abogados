@@ -1,13 +1,21 @@
 /**
  * Proposito.jsx
- * Sección de propósito - Logo destacado y elegante como elemento central.
+ * Sección de propósito - Video profesional como elemento visual.
  */
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { homeController } from '../../controllers/homeController';
 import SectionTitle from '../common/SectionTitle';
 
 const Proposito = () => {
   const data = homeController.getPropositoData();
+  const videoRef = useRef(null);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
 
   const icons = {
     'Datos': (
@@ -22,7 +30,7 @@ const Proposito = () => {
     ),
     'Derecho de Seguros': (
       <svg className="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h14a2 2 0 002-2z"></path>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 012 2h14a2 2 0 012-2V9a2 2 0 012-2h14a2 2 0 002-2z"></path>
       </svg>
     ),
   };
@@ -39,13 +47,28 @@ const Proposito = () => {
             </p>
           </div>
 
-          {/* Imagen de propuesta */}
+          {/* Video */}
           <div className="rounded-2xl overflow-hidden shadow-card border border-secondary-100">
-            <img
-              src="/images/imagen-propuesta-3.jpeg"
-              alt="Propósito DOTASEG - Gestión de riesgos"
-              className="w-full h-64 sm:h-80 object-cover object-center"
-            />
+            {!videoError ? (
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/images/imagen-propuesta-3.jpeg"
+                onError={() => setVideoError(true)}
+                className="w-full h-64 sm:h-80 object-cover"
+              >
+                <source src="/images/Video2.mp4" type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                src="/images/imagen-propuesta-3.jpeg"
+                alt="Propósito DOTASEG - Gestión de riesgos"
+                className="w-full h-64 sm:h-80 object-cover object-center"
+              />
+            )}
           </div>
         </div>
 

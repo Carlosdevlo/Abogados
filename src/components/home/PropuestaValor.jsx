@@ -1,13 +1,21 @@
 /**
  * PropuestaValor.jsx
- * Sección de propuesta de valor con imagen profesional.
+ * Sección de propuesta de valor con video profesional.
  */
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { homeController } from '../../controllers/homeController';
 import SectionTitle from '../common/SectionTitle';
 
 const PropuestaValor = () => {
   const data = homeController.getPropuestaValorData();
+  const videoRef = useRef(null);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
 
   return (
     <section id="propuesta" className="py-16 lg:py-24 bg-white">
@@ -34,13 +42,29 @@ const PropuestaValor = () => {
             ))}
           </div>
 
-          {/* Image */}
+          {/* Video */}
           <div className="rounded-2xl overflow-hidden shadow-card border border-secondary-100">
-            <img
-              src="/images/imagen-propuesta-5.jpeg"
-              alt="Propuesta de valor DOTASEG"
-              className="w-full h-64 sm:h-80 lg:h-[400px] object-cover"
-            />
+            {!videoError ? (
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/images/imagen-propuesta-5.jpeg"
+                onError={() => setVideoError(true)}
+                className="w-full h-64 sm:h-80 lg:h-[400px] object-cover"
+              >
+                <source src="/images/Video1.mp4" type="video/mp4" />
+                {/* Fallback poster image shown automatically if video fails to load */}
+              </video>
+            ) : (
+              <img
+                src="/images/imagen-propuesta-5.jpeg"
+                alt="Propuesta de valor DOTASEG"
+                className="w-full h-64 sm:h-80 lg:h-[400px] object-cover"
+              />
+            )}
           </div>
         </div>
       </div>
