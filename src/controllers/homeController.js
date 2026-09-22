@@ -28,6 +28,7 @@ export const homeController = {
         { id: 1, name: 'Datos', description: 'Gestión inteligente de información para decisiones informadas.' },
         { id: 2, name: 'Tecnología', description: 'Herramientas digitales para agilizar procesos y mejorar la experiencia.' },
         { id: 3, name: 'Derecho de Seguros', description: 'Asesoría jurídica especializada en materia de seguros.' },
+        { id: 4, name: 'Alertas Tempranas', description: 'Alertas tempranas de fraude y siniestros de alto impacto para mitigar riesgos proactivamente.' },
       ],
     };
   },

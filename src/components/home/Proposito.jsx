@@ -33,6 +33,11 @@ const Proposito = () => {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 012 2h14a2 2 0 012-2V9a2 2 0 012-2h14a2 2 0 002-2z"></path>
       </svg>
     ),
+    'Alertas Tempranas': (
+      <svg className="w-8 h-8 text-gold-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m-3-3l-3 3m3-3V8a4 4 0 11-4 4H8"></path>
+      </svg>
+    ),
   };
 
   return (
@@ -72,7 +77,7 @@ const Proposito = () => {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {data.items.map((item) => (
             <div key={item.id} className="text-center bg-white rounded-xl p-8 shadow-soft hover:shadow-card transition-all duration-300 border border-secondary-100 hover:border-gold-200 group">
               <div className="w-20 h-20 mx-auto bg-gold-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold-200 transition-colors duration-300">
